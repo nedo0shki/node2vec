@@ -93,15 +93,15 @@ def main(args):
 	'''
 	Pipeline for representational learning for all nodes in a graph.
 	'''
-    print("start reading graph")
+        print("start reading graph")
 	nx_G = read_graph()
-    print("finish reading graph")
+        print("finish reading graph")
 	G = node2vec.Graph(nx_G, args.directed, args.p, args.q)
-    print("finish formatting")
+        print("finish formatting")
 	G.preprocess_transition_probs()
-    print("start simulating walks")
+        print("start simulating walks")
 	walks = G.simulate_walks(args.num_walks, args.walk_length)
-    print("finish simulating walks")
+        print("finish simulating walks")
 	learn_embeddings(walks)
 
 if __name__ == "__main__":
